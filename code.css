@@ -1,90 +1,20 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 2.5em;
-}
-
-p {
-  font-size: 1.2em;
-}
-
-.portfolio {
-  padding: 20px;
-  text-align: center;
-}
-
-h2 {
-  margin-bottom: 20px;
-  font-size: 2em;
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.project {
-  width: 300px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.project img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.project h3 {
-  margin: 10px 0;
-}
-
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-/* Gradient chuyển động cho tiêu đề */
+/* Gradient text effect */
 header h1 {
-  background: linear-gradient(45deg, #00fff7, #ff00d4, #00fff7);
+  background: linear-gradient(45deg, cyan, orange, cyan);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientText 5s infinite linear;
 }
 
-@keyframes gradientText {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-/* Hover glow cho project */
+/* Hover effect on project cards */
 .project:hover {
-  box-shadow: 0 0 20px #00fff7, 0 0 40px #ff00d4;
+  box-shadow: 0 0 20px cyan, 0 0 40px orange;
   transform: translateY(-5px);
   transition: 0.3s;
   cursor: pointer;
 }
 
-/* Animation xuất hiện khi scroll */
+/* Animation for project visibility */
 .project {
   opacity: 0;
   transform: translateY(30px);
@@ -93,4 +23,18 @@ header h1 {
 .project.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Background animation for the website */
+body {
+  background: linear-gradient(45deg, cyan, orange);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+}
+
+/* Keyframes for animated background */
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
