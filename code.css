@@ -67,7 +67,6 @@ footer {
 /* Gradient chuyển động cho tiêu đề */
 header h1 {
   background: linear-gradient(45deg, #00fff7, #ff00d4, #00fff7);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientText 5s infinite linear;
 }

@@ -1,18 +1,4 @@
-// Thêm tương tác nếu cần, ví dụ: thông báo khi nhấp vào dự án
-document.querySelectorAll('.project').forEach(project => {
-  project.addEventListener('click', () => {
-    alert('Bạn đã nhấp vào ' + project.querySelector('h3').textContent);
-  });
-});
-
-// Click effect
-document.querySelectorAll('.project').forEach(project => {
-  project.addEventListener('click', () => {
-    alert('Bạn đã nhấp vào ' + project.querySelector('h3').textContent);
-  });
-});
-
-// Scroll effect (reveal)
+// Thêm hiệu ứng scroll
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -23,7 +9,7 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.project').forEach(el => observer.observe(el));
 
-// Background stars
+// Nền sao động
 const canvas = document.createElement('canvas');
 canvas.style.position = 'fixed';
 canvas.style.top = 0;
