@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeApp - Đồ Gia Dụng Thông Minh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        /* Product Categories */
+        .categories {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .category-card {
+            background: #f5f6fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 50px 20px;
+            background: #f5f6fa;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-price {
+            color: #e74c3c;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .add-to-cart {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+        }
+        /* Thêm các hiệu ứng mới */
+
+        /* Hiệu ứng nút bấm */
+        .add-to-cart {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            transition: all 0.5s ease;
+        }
+
+        .add-to-cart:active:after {
+            width: 200px;
+            height: 200px;
+            opacity: 0.3;
+            transition: 0s;
+        }
+
+        /* Hiệu ứng ảnh sản phẩm */
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .product-image {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        /* Hiệu ứng thẻ sản phẩm */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        /* Hiệu ứng menu */
+        .nav-links a {
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hiệu ứng loading khi click */
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .loading:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.8s linear infinite;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Hiệu ứng thêm vào giỏ hàng */
+        @keyframes cartBounce {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .cart-animation {
+            animation: cartBounce 0.5s ease;
+        }
+         /* Thêm CSS cho đường dẫn */
+    .category-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .category-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .category-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        color: #3498db;
+        font-size: 0.9em;
+        transition: transform 0.3s ease;
+    }
+
+    .category-card:hover .category-info {
+        transform: translateX(10px);
+    }
+
+    .product-link {
+        display: block;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    .product-title {
+        text-decoration: none;
+        color: #2c3e50;
+        transition: color 0.3s ease;
+    }
+
+    .product-title:hover {
+        color: #e74c3c;
+    }
+
+    .product-meta {
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9em;
+    }
+
+    .product-category {
+        text-decoration: none;
+        color: #7f8c8d;
+        background: #f1f2f6;
+        padding: 5px 10px;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .product-category:hover {
+        background: #3498db;
+        color: white;
+    }
+
+    .product-rating {
+        color: #f39c12;
+    }
+    </style>
+</head>
+
+
+      
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="logo">HomeApp</div>
+            <div class="nav-links">
+                <a href="#home">Trang chủ</a>
+                <a href="#products">Sản phẩm</a>
+                <a href="#about">Giới thiệu</a>
+                <a href="#contact">Liên hệ</a>
+                <a href="#cart"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Thiết Bị Gia Dụng Thông Minh</h1>
+            <p>Nâng tầm chất lượng cuộc sống</p>
+        </div>
+    </section>
+
+  
+    <section class="categories">
+      <h2>Danh Mục Sản Phẩm</h2>
+      <div class="categories-grid">
+          <a href="/danh-muc/do-dung-nha-bep" class="category-link">
+              <div class="category-card">
+                  <h3>Đồ Dùng Nhà Bếp</h3>
+                  <div class="category-info">
+                      <p>Xem 50 sản phẩm</p>
+                      <i class="fas fa-chevron-right"></i>
+                  </div>
+              </div>
+          </a>
+  
+          <a href="/danh-muc/thiet-bi-dien-tu" class="category-link">
+              <div class="category-card">
+                  <h3>Thiết Bị Điện Tử</h3>
+                  <div class="category-info">
+                      <p>Xem 32 sản phẩm</p>
+                      <i class="fas fa-chevron-right"></i>
+                  </div>
+              </div>
+          </a>
+  
+          <a href="/danh-muc/dung-cu-ve-sinh" class="category-link">
+              <div class="category-card">
+                  <h3>Dụng Cụ Vệ Sinh</h3>
+                  <div class="category-info">
+                      <p>Xem 28 sản phẩm</p>
+                      <i class="fas fa-chevron-right"></i>
+                  </div>
+              </div>
+          </a>
+      </div>
+  </section>
+  
+  <!-- Trong phần sản phẩm -->
+  <div class="product-card">
+      <a href="/san-pham/may-hut-bui-thong-minh" class="product-link">
+          <img src="https://via.placeholder.com/300x200" alt="Máy hút bụi" class="product-image">
+      </a>
+      <div class="product-details">
+          <a href="/san-pham/may-hut-bui-thong-minh" class="product-title">
+              <h3>Máy Hút Bụi Thông Minh</h3>
+          </a>
+          <div class="product-meta">
+              <a href="/danh-muc/do-dung-nha-bep" class="product-category">Đồ Dùng Nhà Bếp</a>
+              <div class="product-rating">
+                  <i class="fas fa-star"></i>
+                  <span>4.9 (128 đánh giá)</span>
+              </div>
+          </div>
+          <p class="product-price">2.990.000₫</p>
+          <button class="add-to-cart">Thêm vào giỏ hàng</button>
+      </div>
+  </div>
+    
+
+    <section class="products">
+        <h2>Sản Phẩm Nổi Bật</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Máy hút bụi" class="product-image">
+                <h3>Máy Hút Bụi Thông Minh</h3>
+                <p class="product-price">2.990.000₫</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Lò vi sóng" class="product-image">
+                <h3>Lò Vi Sóng Đa Năng</h3>
+                <p class="product-price">1.590.000₫</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>Về chúng tôi</h4>
+                <p>HomeApp - Đồ gia dụng chất lượng cao</p>
+            </div>
+            <div>
+                <h4>Liên hệ</h4>
+                <p>Email: contact@homeapp.com</p>
+                <p>Điện thoại: 0123 456 789</p>
+            </div>
+            <div>
+                <h4>Theo dõi chúng tôi</h4>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+  
+      <script>
+          // Thêm hiệu ứng khi click thêm vào giỏ hàng
+          document.querySelectorAll('.add-to-cart').forEach(button => {
+              button.addEventListener('click', function(e) {
+                  // Hiệu ứng ripple
+                  const ripple = document.createElement('div');
+                  ripple.style.cssText = `
+                      position: absolute;
+                      width: 20px;
+                      height: 20px;
+                      background: rgba(255, 255, 255, 0.5);
+                      border-radius: 50%;
+                      transform: translate(-50%, -50%);
+                      pointer-events: none;
+                      animation: rippleEffect 0.6s linear;
+                  `;
+                  
+                  const rect = this.getBoundingClientRect();
+                  ripple.style.left = `${e.clientX - rect.left}px`;
+                  ripple.style.top = `${e.clientY - rect.top}px`;
+                  
+                  this.appendChild(ripple);
+  
+                  // Hiệu ứng loading
+                  this.classList.add('loading');
+                  setTimeout(() => {
+                      this.classList.remove('loading');
+                      
+                      // Hiệu ứng giỏ hàng
+                      const cartIcon = document.querySelector('.fa-shopping-cart');
+                      cartIcon.classList.add('cart-animation');
+                      setTimeout(() => cartIcon.classList.remove('cart-animation'), 500);
+                      
+                      // Thông báo thêm thành công
+                      const success = document.createElement('div');
+                      success.textContent = 'Đã thêm vào giỏ hàng!';
+                      success.style.cssText = `
+                          position: fixed;
+                          bottom: 20px;
+                          right: 20px;
+                          background: #27ae60;
+                          color: white;
+                          padding: 15px 25px;
+                          border-radius: 5px;
+                          animation: slideIn 0.3s ease-out;
+                      `;
+                      document.body.appendChild(success);
+                      setTimeout(() => success.remove(), 2000);
+                  }, 1000);
+  
+                  // Xóa ripple sau khi animation kết thúc
+                  setTimeout(() => ripple.remove(), 600);
+              });
+          });
+  
+          // Thêm hiệu ứng khi click product card
+          document.querySelectorAll('.product-card').forEach(card => {
+              card.addEventListener('click', function() {
+                  this.style.transform = 'scale(0.95)';
+                  setTimeout(() => this.style.transform = '', 200);
+              });
+          });
+  
+          // Thêm animation cho ripple
+          const style = document.createElement('style');
+          style.textContent = `
+              @keyframes rippleEffect {
+                  from { transform: scale(1); opacity: 1; }
+                  to { transform: scale(20); opacity: 0; }
+              }
+              @keyframes slideIn {
+                  from { transform: translateX(100%); }
+                  to { transform: translateX(0); }
+              }
+          `;
+          document.head.appendChild(style);
+          // Thêm xử lý click cho danh mục
+      document.querySelectorAll('.category-link').forEach(link => {
+          link.addEventListener('click', function(e) {
+              // Thêm hiệu ứng chuyển trang
+              e.preventDefault();
+              
+              // Hiệu ứng loading
+              const overlay = document.createElement('div');
+              overlay.style.cssText = `
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(255, 255, 255, 0.9);
+                  z-index: 1000;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  animation: fadeIn 0.3s ease;
+              `;
+              
+              const spinner = document.createElement('div');
+              spinner.className = 'loading-spinner';
+              overlay.appendChild(spinner);
+              document.body.appendChild(overlay);
+  
+              // Giả lập tải trang
+              setTimeout(() => {
+                  window.location.href = this.href;
+              }, 1000);
+          });
+      });
+  
+      // Thêm style cho spinner
+      const spinnerStyle = document.createElement('style');
+      spinnerStyle.textContent = `
+          .loading-spinner {
+              border: 4px solid #f3f3f3;
+              border-radius: 50%;
+              border-top: 4px solid #3498db;
+              width: 40px;
+              height: 40px;
+              animation: spin 1s linear infinite;
+          }
+          
+          @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+          }
+          
+          @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+          }
+      `;
+      document.head.appendChild(spinnerStyle);
+      </script>
+</body>
+</html>
