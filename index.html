@@ -191,7 +191,7 @@
       font-size: 1.2rem;
     }
     nav {
-      background: rgba(0,255,255,0.1);
+      background: rgba(0, 0, 0);
       padding: 15px;
       position: sticky;
       top: 0;
@@ -586,7 +586,7 @@
 </head>
 <body>
   <canvas></canvas>
-  <nav>
+  <!-- <nav>
     <ul>
       <li><a href="#home" class="btn">Trang Chủ</a></li>
       <li><a href="#services" class="btn">Dịch Vụ</a></li>
@@ -594,7 +594,7 @@
       <li><a href="#portfolio" class="btn">Dự Án</a></li>
       <li><a href="#contact" class="btn">Liên Hệ</a></li>
     </ul>
-  </nav>
+  </nav> -->
 
   <header id="home">
     <h1>KHANG DeSight</h1>
@@ -726,6 +726,11 @@
         <p>Bao bì tiện dụng, kể câu chuyện thương hiệu một cách tinh tế.</p>
         <a href="#" class="btn">Xem Dự Án</a>
       </div>
+      <div class="category-card" onclick="openModal('profile')">
+        <h3>Profile & Catalogue</h3>
+        <p>Hồ sơ năng lực và danh mục sản phẩm chuyên nghiệp, bộ mặt uy tín của thương hiệu.</p>
+        <a href="#" class="btn">Xem Dự Án</a>
+      </div>
       <div class="category-card" onclick="openModal('social')">
         <h3>Bài Đăng Mạng Xã Hội</h3>
         <p>Banner, story gần gũi, tăng tương tác với khách hàng.</p>
@@ -833,7 +838,7 @@
       <div class="project-list">
 
         <div class="project-item">
-          <img src="/codekhangdesight/design/anztisocial.jpg" alt="Bộ nhận diện cho thương hiệu trang sức cao cấp." title="Bộ nhận diện thương hiệu trang sức cao cấp.">          
+          <img src="/design/anztisocial.jpg" alt="Bộ nhận diện cho thương hiệu trang sức cao cấp." title="Bộ nhận diện thương hiệu trang sức cao cấp.">          
           <h3>AnztiSocial</h3>
           <p>Bộ nhận diện thương hiệu trang sức cao cấp.</p>
           <ul>
@@ -844,7 +849,7 @@
         </div>
 
         <div class="project-item">
-          <img src="/codekhangdesight/design/liby.jpg" alt="Bộ nhận diện thương hiệu giặt sấy cao cấp." title="Bộ nhận diện thương hiệu giặt sấy cao cấp.">
+          <img src="/design/liby.jpg" alt="Bộ nhận diện thương hiệu giặt sấy cao cấp." title="Bộ nhận diện thương hiệu giặt sấy cao cấp.">
           <h3>Liby</h3>
           <p>Bộ nhận diện thương hiệu giặt sấy cao cấp.</p>
           <ul>
@@ -911,19 +916,85 @@
         </div>
         
         <div class="project-item">
-          <img src="https://via.placeholder.com/300x200/00ffff/0a0a0a?text=Packaging3" alt="Snack Packaging" loading="lazy">
-          <h3>Bao Bì Snack</h3>
-          <p>Bao bì năng động cho thương hiệu đồ ăn nhẹ.</p>
+          <img src="design/vữa lvr.jpg" alt="Snack Packaging" title="Bao bì vữa xây cao cấp cho xây dựng." loading="lazy">
+          <h3>LOVARA</h3>
+          <p>Bao bì vữa xây cao cấp cho xây dựng.</p>
           <ul>
             <li><strong>Công cụ:</strong> Photoshop, InDesign</li>
             <li><strong>Thời gian:</strong> 3 tuần (2024)</li>
           </ul>
-          <a href="https://www.behance.net/gallery/123464/packaging3" target="_blank" class="btn">Xem trên Behance</a>
+          <a href="https://www.behance.net/gallery/226074383/Packaging-LOVARA-%28va-xay-trat%29" target="_blank" class="btn">Xem trên Behance</a>
         </div>
+
+        <div class="project-item">
+          <img src="design//hobo.jpg" alt="Snack Packaging" title="Bao bì khô bò đặc sản Gia Lai." loading="lazy">
+          <h3>Tung Phuong</h3>
+          <p>Bao bì khô bò đặc sản Gia Lai.</p>
+          <ul>
+            <li><strong>Công cụ:</strong> Photoshop, InDesign</li>
+            <li><strong>Thời gian:</strong> 3 tuần (2024)</li>
+          </ul>
+          <a href="https://www.behance.net/gallery/217348455/Pakaging-Beef-Jerky" target="_blank" class="btn">Xem trên Behance</a>
+        </div>
+
       </div>
     </div>
   </div>
 
+   <div id="profile" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('profile')">x</span>
+      <h2>Profile & Catalogue</h2>
+      <p>Hồ sơ năng lực và danh mục sản phẩm chuyên nghiệp, bộ mặt uy tín của thương hiệu.</p>
+      <div class="project-list">
+
+        <div class="project-item">
+          <img src="design/toancau profile.jpg" alt="Coffee Packaging" title="Hồ sơ năng lực chuyên nghiệp cho công ty vật liệu xây dựng quy mô lớn." loading="lazy">
+          <h3>Toan Cau</h3>
+          <p>Hồ sơ năng lực chuyên nghiệp cho công ty vật liệu xây dựng quy mô lớn.</p>
+          <ul>
+            <li><strong>Công cụ:</strong> Illustrator, Photoshop</li>
+            <li><strong>Thời gian:</strong> 3 tuần (2024)</li>
+          </ul>
+          <a href="https://www.behance.net/gallery/223834529/Profile-TOANCAU-Company" target="_blank" class="btn">Xem trên Behance</a>
+        </div>
+
+        <div class="project-item">
+          <img src="design/royal vet.jpg" alt="Tea Packaging" title="Danh mục sản phẩm cao cấp gọn gàng tinh tế." loading="lazy">
+          <h3>Royal Vet</h3>
+          <p>Danh mục sản phẩm cao cấp gọn gàng tinh tế.</p>
+          <ul>
+            <li><strong>Công cụ:</strong> Illustrator</li>
+            <li><strong>Thời gian:</strong> 2 tuần (2024)</li>
+          </ul>
+          <a href="https://www.behance.net/gallery/206601827/Catalogue-Brand-Royal-Vet" target="_blank" class="btn">Xem trên Behance</a>
+        </div>
+        
+        <div class="project-item">
+          <img src="design/thinh vuong.jpg" alt="Snack Packaging" title="Hồ sơ năng lực công ty Logistic quy mô cả nước." loading="lazy">
+          <h3>Thinh Vuong</h3>
+          <p>Hồ sơ năng lực công ty Logistic quy mô cả nước.</p>
+          <ul>
+            <li><strong>Công cụ:</strong> Photoshop, InDesign</li>
+            <li><strong>Thời gian:</strong> 3 tuần (2024)</li>
+          </ul>
+          <a href="https://www.behance.net/gallery/223837413/Profile-THINHVUONG-Company" target="_blank" class="btn">Xem trên Behance</a>
+        </div>
+
+        <!-- <div class="project-item">
+          <img src="design//hobo.jpg" alt="Snack Packaging" title="Bao bì khô bò đặc sản Gia Lai." loading="lazy">
+          <h3></h3>
+          <p></p>
+          <ul>
+            <li><strong>Công cụ:</strong> Photoshop, InDesign</li>
+            <li><strong>Thời gian:</strong> 3 tuần (2024)</li>
+          </ul>
+          <a href="https://www.behance.net/gallery/217348455/Pakaging-Beef-Jerky" target="_blank" class="btn">Xem trên Behance</a>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
 
   <div id="social" class="modal">
     <div class="modal-content">
@@ -1261,6 +1332,215 @@
       gsap.from('header p', { opacity: 0, y: 40, duration: 1, delay: 0.2, ease: 'power2.out' });
       gsap.from('.carousel-item', { opacity: 0, x: 100, duration: 1, delay: 0.4, stagger: 0.2, ease: 'power2.out' });
     }
+  </script>
+  
+  <!-- code phần thanh công cụ -->
+   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
+    }
+    body {
+      background: #0a0a0a;
+      color: #00ffff;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #00ffff;
+      background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(255,149,0,0.2));
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      box-shadow: 0 4px 12px rgba(0,255,255,0.3);
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #00ffff, #ff9500);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+    .btn:hover {
+      color: #0a0a0a;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,255,255,0.5);
+    }
+    .btn:hover::before {
+      left: 0;
+    }
+    nav {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    .nav-hidden {
+      transform: translateY(-100%);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #00ffff;
+    }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 15px;
+    }
+    .nav-menu li a {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #00ffff;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s ease;
+      }
+      .nav-menu.active {
+        right: 0;
+      }
+      .nav-menu li a {
+        font-size: 1.2rem;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    @media (max-width: 480px) {
+      .nav-logo {
+        font-size: 1.2rem;
+      }
+      .nav-menu li a {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">Xin chào! Mình là KHANG DeSight</div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="btn nav-link">Trang Chủ</a></li>
+        <li><a href="#services" class="btn nav-link">Dịch Vụ</a></li>
+        <li><a href="#about" class="btn nav-link">Giới Thiệu</a></li>
+        <li><a href="#portfolio" class="btn nav-link">Dự Án</a></li>
+        <li><a href="#contact" class="btn nav-link">Liên Hệ</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Rest of your content remains unchanged -->
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Hide navbar when scrolling down, show when scrolling up
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+      let currentScroll = window.scrollY;
+      if (currentScroll > lastScrollTop && currentScroll > 100) {
+        navbar.classList.add('nav-hidden');
+      } else {
+        navbar.classList.remove('nav-hidden');
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('.nav-link').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        window.scrollTo({
+          top: targetElement.offsetTop - 60,
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
 </body>
 </html>
