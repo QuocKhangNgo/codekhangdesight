@@ -859,6 +859,8 @@
                     if (response.ok) {
                         console.log('Chuyển hướng đến thanks.html');
                         window.location.assign('https://QuocKhangNgo.github.io/codekhangdesight/thanks.html');
+                            form.reset(); // Thêm vào sau window.location.assign
+
                     } else {
                         console.error('Lỗi từ Formspree:', response.status);
                         alert('Có lỗi khi gửi biểu mẫu. Vui lòng thử lại.');
@@ -873,7 +875,6 @@
             console.error('Không tìm thấy biểu mẫu với id="contactForm"');
         }
     });
-    form.reset(); // Thêm vào sau window.location.assign
 </script>
 
   </section>
