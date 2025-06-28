@@ -583,7 +583,6 @@
       .project-inner { height: 300px; }
     }
 
-
     .cv {
   padding: 60px 20px;
   max-width: 1200px;
@@ -696,7 +695,7 @@
       </div>
     </div>
     <br>
-  <div class="service-grid">
+    <div class="service-grid">
     <!-- Các service-card hiện có -->
   </div>
   <a href="#contact" class="btn btn-cta">Liên hệ ngay để nhận tư vấn miễn phí!</a>
@@ -878,7 +877,6 @@
   </div>
   <a href="cv.pdf" download class="btn btn-cta">Tải CV (PDF)</a>
 </section>
-
   <section class="contact" id="contact">
     <h2>Bạn có thể liên hệ mình qua ...</h2>
     <div class="contact-info">
@@ -1398,7 +1396,7 @@
     </div>
   </div>
 
-  <!-- <div id="signage" class="modal">
+  <div id="signage" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('signage')">×</span>
       <h2>Biển Hiệu</h2>
@@ -1436,7 +1434,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script>
@@ -1724,7 +1722,7 @@
         font-size: 1rem;
       }
     }
-    
+
     @media (max-width: 768px) {
   .carousel {
     overflow-x: auto;
@@ -1734,8 +1732,7 @@
     flex: 0 0 200px;
     scroll-snap-align: start;
   }
-}
-@media (max-width: 768px) {
+}@media (max-width: 768px) {
   header h1 { font-size: 2rem; }
   .services h2, .about h2, .portfolio h2, .testimonials h2, .blog h2, .contact h2, .cv h2 {
     font-size: 2rem;
@@ -1744,6 +1741,7 @@
     font-size: 0.9rem;
   }
 }
+    
   </style>
 </head>
 <body>
@@ -1828,39 +1826,18 @@
   });
 });
 
-function openModal(id) {
-  const modal = document.getElementById(id);
-  modal.style.display = 'block';
-  if (typeof gsap !== 'undefined') {
-    gsap.from(modal.querySelector('.modal-content'), {
-      scale: 0.8,
-      opacity: 0,
-      duration: 0.3,
-      ease: 'power2.out'
-    });
-  }
-}
-
-stars = Array.from({ length: 50 }, () => ({ // Giảm từ 80 xuống 50
-  x: Math.random() * canvas.width,
-  y: Math.random() * canvas.height,
-  r: Math.random() * 1.5 + 0.5,
-  dx: Math.random() * 0.1 - 0.05,
-  dy: Math.random() * 0.1 - 0.05,
-  color: Math.random() > 0.5 ? '#00ffff' : '#ff9500'
-}));
 
     // Tối ưu hiệu suất: Lazy load images
 document.querySelectorAll('img').forEach(img => {
   img.setAttribute('loading', 'lazy');
 });
 
-// Tối ưu modal signage
-document.getElementById('signage').addEventListener('click', (e) => {
-  if (e.target.classList.contains('close')) {
-    closeModal('signage');
-  }
-});
+// // Tối ưu modal signage
+// document.getElementById('signage').addEventListener('click', (e) => {
+//   if (e.target.classList.contains('close')) {
+//     closeModal('signage');
+//   }
+// });
 
 // Đóng modal khi click bên ngoài nội dung
 document.querySelectorAll('.modal').forEach(modal => {
