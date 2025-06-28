@@ -832,13 +832,50 @@
       <textarea name="message" placeholder="Tin Nhắn" required></textarea>
       <button type="submit" class="btn btn-cta">Gửi</button>
     </form> -->
-  <form class="contact-form" action="https://formspree.io/f/mdkzywro" method="POST">
+<form id="contactForm" class="contact-form" action="https://formspree.io/f/mdkzywro" method="POST">
     <input type="text" name="name" placeholder="Họ Tên" required>
     <input type="email" name="email" placeholder="Email" required>
     <textarea name="message" placeholder="Tin Nhắn" required></textarea>
     <input type="hidden" name="_next" value="https://QuocKhangNgo.github.io/codekhangdesight/thanks.html">
+    <input type="hidden" name="_language" value="vi">
     <button type="submit" class="btn btn-cta">Gửi</button>
 </form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactForm');
+        if (form) {
+            console.log('Biểu mẫu được tìm thấy, gắn sự kiện submit...');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                console.log('Biểu mẫu đang gửi...');
+                fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(response => {
+                    console.log('Phản hồi từ Formspree:', response.status);
+                    if (response.ok) {
+                        console.log('Chuyển hướng đến thanks.html');
+                        window.location.assign('https://QuocKhangNgo.github.io/codekhangdesight/thanks.html');
+                    } else {
+                        console.error('Lỗi từ Formspree:', response.status);
+                        alert('Có lỗi khi gửi biểu mẫu. Vui lòng thử lại.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                    alert('Lỗi: ' + error.message);
+                });
+            });
+        } else {
+            console.error('Không tìm thấy biểu mẫu với id="contactForm"');
+        }
+    });
+    form.reset(); // Thêm vào sau window.location.assign
+</script>
+
   </section>
 
   <footer>
